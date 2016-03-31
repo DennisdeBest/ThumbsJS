@@ -16,12 +16,12 @@ $(function() {
                 $.each(data, function(k, v) {
                     if(v != "." && v != "..")
                     {
-                    var html = "<div class='miniatureImage' id='mini_"+k+"'>" +
+                    var html = "<div class='thumbnail' id='mini_"+k+"'>" +
                         "<img src='img/small/"+v+"'/>" +
                         "</div>";
                     //console.log("Key "+k+" Value "+v);
 
-                    $('#miniatures').append(html);
+                    $('#thumbnails').append(html);
                     }
                     imgNameArray.push(v);
                 });
@@ -31,13 +31,13 @@ $(function() {
     }
 
     function setHover() {
-        $('.miniatureImage').mouseover(function()
+        $('.thumbnail').mouseover(function()
         {
             var id = $(this).attr("id");
             id = id.replace("mini_","");
             var image = imgNameArray[id];
             var html = "<img src='img/large/"+image+"'/>";
-            $('#maxiature').html(html)
+            $('#largeImg').html(html)
         });
         }
 

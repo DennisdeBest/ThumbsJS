@@ -1,4 +1,4 @@
-#miniatures {
+#thumbnails {
     width: 120px;
     border: 2px solid black;
     height: 600px;
@@ -9,7 +9,7 @@
 
 }
 
-.miniatureImage {
+.thumbnail {
     width: 90px;
     height: 90px;
     box-sizing: border-box;
@@ -18,7 +18,7 @@
     overflow: hidden;
 }
 
-#maxiature {
+#largeImg {
     margin-left: 10px;
     float: left;
     border: 2px solid black;
@@ -27,7 +27,7 @@
     padding: 50px;
     box-sizing: border-box;
 }
-#maxiature img{
+#largeImg img{
     height: 500px;
     width: 500px;
     margin: auto;
