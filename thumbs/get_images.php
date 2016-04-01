@@ -4,6 +4,14 @@ $miniDir = 'img/small/';
 $res = scandir($dir);
 $thumbWidth = 90;
 
+foreach($res as $item){
+    if($item != "." && $item != ".."){
+        $imageArray[] = $item;
+    }
+}
+
+$res=$imageArray;
+
 session_start();
 $_SESSION['log']="";
 

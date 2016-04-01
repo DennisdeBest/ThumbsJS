@@ -7,22 +7,19 @@ $(function() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "get_images.php",
+            url: "thumbs/get_images.php",
             cache: false,
             data:data,
             success: function(data){
                 //console.log("Ajax done");
                 //console.log(data);
                 $.each(data, function(k, v) {
-                    if(v != "." && v != "..")
-                    {
                     var html = "<div class='thumbnail' id='mini_"+k+"'>" +
-                        "<img src='img/small/"+v+"'/>" +
+                        "<img src='thumbs/img/small/"+v+"'/>" +
                         "</div>";
                     //console.log("Key "+k+" Value "+v);
 
                     $('#thumbnails').append(html);
-                    }
                     imgNameArray.push(v);
                 });
                 callback();
@@ -36,7 +33,7 @@ $(function() {
             var id = $(this).attr("id");
             id = id.replace("mini_","");
             var image = imgNameArray[id];
-            var html = "<img src='img/large/"+image+"'/>";
+            var html = "<img src='thumbs/img/large/"+image+"'/>";
             $('#largeImg').html(html)
         });
         }
