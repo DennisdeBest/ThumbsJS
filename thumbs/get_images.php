@@ -30,8 +30,8 @@ function makeThumbnails($src,$srcDir, $dest, $desired_width) {
     $imageCreateType = "ImageCreateFromJPEG";
     $imageType = "imagejpeg";
 
-    $_SESSION['log'].= $extension;
-    $_SESSION['log'].= $info;
+    //$_SESSION['log'].= $extension;
+    //$_SESSION['log'].= $info;
 
     if($extension == ".gif"){
         $imageCreateType = "ImageCreateFromGIF";
@@ -59,7 +59,9 @@ function makeThumbnails($src,$srcDir, $dest, $desired_width) {
     $imageType($virtual_image, $dest);
 }
 foreach($res as $originalImg){
-    makeThumbnails($originalImg,$dir, $miniDir, $thumbWidth);
+    if(!file_exists($miniDir.$originalImg)) {
+        makeThumbnails($originalImg, $dir, $miniDir, $thumbWidth);
+    }
 }
 
 echo json_encode($res);

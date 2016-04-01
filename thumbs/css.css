@@ -1,34 +1,36 @@
 #thumbnails {
-    width: 120px;
     border: 2px solid black;
-    height: 600px;
-    float: left;
-    display: inline-block;
     box-sizing: border-box;
-    padding: 15px;
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 205px;
 }
 
 .thumbnail {
     width: 90px;
     height: 90px;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    margin: 5px;
     border: 1px outset black;
     overflow: hidden;
 }
 
 #largeImg {
-    margin-left: 10px;
-    float: left;
     border: 2px solid black;
     display: inline-block;
     height: 600px;
     padding: 50px;
     box-sizing: border-box;
+    width: 600px;
+    margin-left: 15px;
 }
 #largeImg img{
     height: 500px;
     width: 500px;
     margin: auto;
+}
+#container {
+    display: flex;
+    flex-direction: row;
 }
