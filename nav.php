@@ -1,4 +1,4 @@
 <ul>
-    <li><a href="index.php">Index</a></li>
-    <li><a href="index2.php">Index 2</a> </li>
+    <li><a href="index.php">Nature</a></li>
+    <li><a href="city.php">City</a> </li>
 </ul>

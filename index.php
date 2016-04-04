@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ThumsJS</title>
+    <title>ThumsbJS - nature</title>
     <link rel="stylesheet" type="text/css" href="thumbs/css.css">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <?php session_start();

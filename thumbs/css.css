@@ -1,36 +1,67 @@
+body{
+    background-color: #606060;
+}
+h1 {
+    color: white;
+}
+
 #thumbnails {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    /* tweak the where items line up on the row */
+    /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+    -webkit-align-content: flex-start;
+    align-content: flex-start;
     border: 2px solid black;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 205px;
+    flex : 1;
 }
 
 .thumbnail {
     width: 90px;
     height: 90px;
     box-sizing: border-box;
-    margin: 5px;
-    border: 1px outset black;
+    border: 1px outset darkorange;
     overflow: hidden;
+    align-self: flex-start;
 }
 
 #largeImg {
-    border: 2px solid black;
-    display: inline-block;
-    height: 600px;
-    padding: 50px;
-    box-sizing: border-box;
-    width: 600px;
     margin-left: 15px;
+    flex: 4;
 }
 #largeImg img{
-    height: 500px;
-    width: 500px;
+    border: 2px solid darkorange;
+    height: 600px;
+    width: 600px;
     margin: auto;
 }
 #container {
     display: flex;
     flex-direction: row;
+}
+nav ul {
+    display: flex;
+}
+nav ul li {
+    list-style: none;
+    text-align: center;
+    flex: 1 25%;
+}
+nav ul li a {
+    color: darkorange;
+    font-size: 1.5em;
+    font-style: italic;
+}
+nav ul li a:hover {
+    color: darkorange;
+    font-size: 1.5em;
+    font-style: italic;
+    text-decoration: wavy;
 }
