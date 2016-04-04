@@ -1,23 +1,33 @@
 <?php
-$dir = 'img/large/';
-$miniDir = 'img/small/';
-$res = scandir($dir);
-$thumbWidth = 90;
 
+session_start();
+
+$maindir = 'img/';
+$dir = $maindir.$_SESSION['dir'];
+$miniDir = $dir.'_small/';
+$res = scandir($dir);
+$thumbWidth = $_SESSION['width'];
+
+//ignore system links
 foreach($res as $item){
     if($item != "." && $item != ".."){
+        $returnArray[] = $miniDir.$item;
         $imageArray[] = $item;
     }
 }
 
-$res=$imageArray;
+$res=$returnArray;
 
-session_start();
 $_SESSION['log']="";
+//$_SESSION['log'].=$dir.$thumbWidth."<strong>".$miniDir."</strong><br/>";
 
 if ( !file_exists($miniDir) ) {
     $oldmask = umask(0);  // helpful when used in linux server
     mkdir ($miniDir, 0777);
+}
+if ( !file_exists($dir."/") ) {
+    $oldmask = umask(0);  // helpful when used in linux server
+    mkdir ($dir."/", 0777);
 }
 
 
@@ -41,6 +51,7 @@ function makeThumbnails($src,$srcDir, $dest, $desired_width) {
         $imageType = "imagepng";
     }
 
+
     $source_image = $imageCreateType($srcDir.$src);
     $width = imagesx($source_image);
     $height = imagesy($source_image);
@@ -55,12 +66,13 @@ function makeThumbnails($src,$srcDir, $dest, $desired_width) {
     /* copy source image at a resized size */
     imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $desired_width, $desired_height, $width, $height);
 
+    //$_SESSION['log'].= $dest."<br/>".$srcDir.$src."<br/>";
     /* create the physical thumbnail image to its destination */
     $imageType($virtual_image, $dest);
 }
-foreach($res as $originalImg){
+foreach($imageArray as $originalImg){
     if(!file_exists($miniDir.$originalImg)) {
-        makeThumbnails($originalImg, $dir, $miniDir, $thumbWidth);
+        makeThumbnails($originalImg, $dir."/", $miniDir, $thumbWidth);
     }
 }
 

@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     console.log("JS loaded");
 
     var data = [];
@@ -15,13 +15,17 @@ $(function() {
                 //console.log(data);
                 $.each(data, function(k, v) {
                     var html = "<div class='thumbnail' id='mini_"+k+"'>" +
-                        "<img src='thumbs/img/small/"+v+"'/>" +
+                        "<img src='thumbs/"+v+"'/>" +
                         "</div>";
                     //console.log("Key "+k+" Value "+v);
 
                     $('#thumbnails').append(html);
                     imgNameArray.push(v);
                 });
+                var image = imgNameArray[0];
+                var html = "<img src='thumbs/"+image+"'/>";
+                html = html.replace(/_small/g, "");
+                $('#largeImg').html(html);
                 callback();
             }
         });
@@ -33,7 +37,8 @@ $(function() {
             var id = $(this).attr("id");
             id = id.replace("mini_","");
             var image = imgNameArray[id];
-            var html = "<img src='thumbs/img/large/"+image+"'/>";
+            var html = "<img src='thumbs/"+image+"'/>";
+            html = html.replace(/_small/g, "");
             $('#largeImg').html(html)
         });
         }
