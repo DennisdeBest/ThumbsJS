@@ -1,4 +1,9 @@
 $(function () {
+
+    var myRe = new RegExp("_thumbs_[0-9]{1,5}", "g");
+
+    var rootDirectory = "/ThumbsJSGit/";
+
     console.log("JS loaded");
 
     var data = [];
@@ -7,7 +12,7 @@ $(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "thumbs/get_images.php",
+            url: rootDirectory+"thumbs/get_images.php",
             cache: false,
             data:data,
             success: function(data){
@@ -15,7 +20,7 @@ $(function () {
                 //console.log(data);
                 $.each(data, function(k, v) {
                     var html = "<div class='thumbnail' id='mini_"+k+"'>" +
-                        "<img src='thumbs/"+v+"'/>" +
+                        "<img src='"+rootDirectory+"thumbs/"+v+"'/>" +
                         "</div>";
                     //console.log("Key "+k+" Value "+v);
 
@@ -23,8 +28,8 @@ $(function () {
                     imgNameArray.push(v);
                 });
                 var image = imgNameArray[0];
-                var html = "<img src='thumbs/"+image+"'/>";
-                html = html.replace(/_small/g, "");
+                var html = "<img src='"+rootDirectory+"thumbs/"+image+"'/>";
+                html = html.replace(myRe, "");
                 $('#largeImg').html(html);
                 callback();
             }
@@ -37,8 +42,9 @@ $(function () {
             var id = $(this).attr("id");
             id = id.replace("mini_","");
             var image = imgNameArray[id];
-            var html = "<img src='thumbs/"+image+"'/>";
-            html = html.replace(/_small/g, "");
+            var html = "<img src='"+rootDirectory+"thumbs/"+image+"'/>";
+            html = html.replace(myRe, "");
+            console.log(html);
             $('#largeImg').html(html)
         });
         }

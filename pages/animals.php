@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ThumsbJS - nature</title>
-    <link rel="stylesheet" type="text/css" href="thumbs/css.css">
+    <title>ThumsbJS - animals</title>
+    <link rel="stylesheet" type="text/css" href="../thumbs/css.css">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <?php session_start();
     $_SESSION['dir']=ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME));
@@ -20,12 +20,16 @@
 ?>
 
 <div id="container">
-    <nav><?php require_once('nav.php'); ?></nav>
-<div id="thumbnails"></div>
+    <nav><ul>
+            <li><a href="../index.php">Nature</a></li>
+            <li><a href="../city.php">City</a> </li>
+            <li><a href="animals.php">Animals</a> </li>
+        </ul></nav>
+    <div id="thumbnails"></div>
     <div id="largeImg">
     </div>
 </div>
 
-<script src="thumbs/thumbs.js"></script>
+<script src="../thumbs/thumbs.js"></script>
 </body>
 </html>

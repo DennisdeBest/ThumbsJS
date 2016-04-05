@@ -20,7 +20,7 @@ h1 {
     align-content: flex-start;
     border: 2px solid black;
     box-sizing: border-box;
-    flex : 1;
+    width:184px;
 }
 
 .thumbnail {
@@ -45,9 +45,16 @@ h1 {
 #container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    width: 75%;
+    margin: auto;
+}
+nav {
+    flex:1;
 }
 nav ul {
     display: flex;
+    flex-direction: column;
 }
 nav ul li {
     list-style: none;

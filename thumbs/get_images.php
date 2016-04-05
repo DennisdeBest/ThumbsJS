@@ -4,9 +4,10 @@ session_start();
 
 $maindir = 'img/';
 $dir = $maindir.$_SESSION['dir'];
-$miniDir = $dir.'_small/';
-$res = scandir($dir);
 $thumbWidth = $_SESSION['width'];
+$miniDir = $dir.'_thumbs_'.$thumbWidth.'/';
+$res = scandir($dir);
+
 
 //ignore system links
 foreach($res as $item){
